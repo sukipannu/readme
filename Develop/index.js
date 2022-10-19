@@ -1,5 +1,9 @@
 // TODO: Include packages needed for this application
-
+const fetch = require("node-fetch");
+const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown.js");
+const ghUserApi = require("./utils/githubUser.js");
+const writeFile = require('./utils/generateMarkdownFile.js')
 // TODO: Create an array of questions for user input
 const questions = [];
 
