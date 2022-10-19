@@ -1,9 +1,7 @@
 // TODO: Include packages needed for this application
-const fetch = require("node-fetch");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown.js");
-const ghUserApi = require("./utils/githubUser.js");
-const writeFile = require('./utils/generateMarkdownFile.js')
+const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 function promptUser (){
@@ -72,7 +70,15 @@ function promptUser (){
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    let content = generateMarkdown(data);
+    fs.writeFile(fileName, content, function (error) {
+        if (error) {
+            return console.log(error)
+        }
+        console.log('sucess')
+    });
+}
 
 // TODO: Create a function to initialize app
 function init() {}
